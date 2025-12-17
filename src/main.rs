@@ -44,10 +44,20 @@ fn main() {
 
     let result = semantic::analyze(&program);
 
-    if let Err(e) = result {
-        error!("{}", e);
+    if let Err(err) = result {
+        error!("{}", err);
         std::process::exit(1);
     }
 
-    codegen::generate(&program, &args.output);
+    let output = args.output.unwrap_or_else(|| "output.exe".to_string());
+    
+    match codegen::generate(&program, &output) {
+        Ok(_) => {
+            debug!("Saved to {}", output);
+        },
+        Err(err) => {
+            error!("Error: {err}");
+        },
+    }
+
 }

@@ -1,11 +1,9 @@
 pub mod interpreter;
-pub mod llvm_codegen;
+// pub mod llvm_codegen;
+mod custom_codegen;
+mod lower;
+mod ir;
+mod x86_64;
+mod generate;
 
-use crate::parser::ast::Program;
-
-pub fn generate(program: &Program, output: &str) {
-    // #[cfg(feature = "interpret")] 
-    // interpreter::execute(program);
-
-    llvm_codegen::generate_binary(program, output);
-}
+pub use generate::generate;
