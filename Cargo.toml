@@ -1,0 +1,14 @@
+[package]
+name = "jozef-lang"
+version = "0.1.0"
+description = ""
+repository = "https://github.com/Jozefpodlecki/jozef-lang"
+edition = "2024"
+rust-version = "1.91.0"
+
+[dependencies]
+flexi_logger = { version = "0.31.7", default-features = false }
+anyhow = "1.0.100"
+log = "0.4.18"
+clap = { version = "4.5.53", features = ["derive"] }
+inkwell = { version = "0.7.0", features = ["llvm21-1"] }
