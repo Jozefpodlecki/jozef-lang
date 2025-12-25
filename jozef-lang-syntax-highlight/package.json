@@ -1,0 +1,30 @@
+{
+  "name": "jozef-lang-syntax-highlight",
+  "displayName": "jozef-lang-syntax-highlight",
+  "description": "",
+  "repository": "https://github.com/Jozefpodlecki/jozef-lang",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "jozef-lang",
+      "aliases": ["jozef-lang", "jozef-lang"],
+      "extensions": [".jlang"],
+      "configuration": "./language-configuration.json",
+       "icon": {
+        "light": "icons/jlang-light.svg",
+        "dark": "icons/jlang-dark.svg"
+      }
+    }],
+    "grammars": [{
+      "language": "jozef-lang",
+      "scopeName": "source.jlang",
+      "path": "./syntaxes/jozef-lang.tmLanguage.json"
+    }]
+  }
+}
