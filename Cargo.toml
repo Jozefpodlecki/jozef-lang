@@ -11,5 +11,7 @@ flexi_logger = { version = "0.31.7", default-features = false }
 anyhow = "1.0.100"
 log = "0.4.18"
 clap = { version = "4.5.53", features = ["derive"] }
-# inkwell = { version = "0.7.0", features = ["llvm21-1"] }
+inkwell = { git = "https://github.com/TheDan64/inkwell.git", default-features = false, features = ["llvm21-1", "target-x86"] }
+# inkwell = { version = "0.7.0", default-features = false, features = ["llvm21-1", "target-x86"] }
+# inkwell = { version = "0.7.1", default-features = false, features = ["target-x86", "llvm21-1-prefer-dynamic"] }
 object = { version = "0.38.0", features = ["write"] }

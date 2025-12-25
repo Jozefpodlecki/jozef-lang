@@ -1,5 +1,5 @@
 pub mod interpreter;
-// pub mod llvm_codegen;
+pub mod llvm_codegen;
 mod custom_codegen;
 mod lower;
 mod ir;

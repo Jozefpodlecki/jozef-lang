@@ -3,7 +3,7 @@ use clap::Parser;
 use log::*;
 use anyhow::{bail, Result};
 
-use crate::{args::CommandArgs, utils::read_source_file};
+use crate::{args::CommandArgs, lexer::Lexer, parser::parse_program, utils::read_source_file};
 
 mod args;
 mod utils;
@@ -36,10 +36,11 @@ fn main() {
 
     let source = read_source_file(&args.input).unwrap();
 
-    let tokens = lexer::lex(&source);
+    let lexer = Lexer::new(&source);
+    let tokens: Vec<_> = lexer.collect();
     debug!("Tokens: {:?}", tokens);
 
-    let program = parser::parse(tokens);
+    let program = parse_program(tokens.into_iter()).unwrap();
     debug!("Program: {:?}", program);
 
     let result = semantic::analyze(&program);
